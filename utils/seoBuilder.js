@@ -89,6 +89,11 @@ export const getMetaDataBySlug = async (type, slug) => {
       metaDescription,
       metaImage,
       canonical
+    },
+    faqs[]{
+      _key,
+      question,
+      answer
     }
   }`;
   const data = await client.fetch(query, { slug });
@@ -115,6 +120,7 @@ export function getMetadata(data, currentUrl = "") {
     alternates: {
       languages: {
         "en-US": "https://drshreyankeducare.com/",
+        "en-ca": "https://www.drshreyankeducare.com/",
       },
       canonical: canonicalUrl,
     },

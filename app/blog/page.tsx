@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import GeneralHeroSection from "@/components/GeneralComponents/GereralHeroSection";
 import { BlogsHeroSectionContent } from "@/components/GeneralComponents/content";
 import { getMetaDataBySlug, getMetadata } from "@/utils/seoBuilder";
@@ -7,7 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import { JsonLd, getPageSchema } from "@/components/SchemaMarkup";
+import { JsonLd, getBlogMainPageSchema } from "@/components/SchemaMarkup";
 import Pagination from "@/components/ui/Pagination";
 
 interface PageProps {
@@ -87,17 +88,16 @@ export default async function BlogListingPage({ searchParams }: PageProps) {
     mainImage
   }`;
 
-  const [posts, totalPosts, data] = await Promise.all([
+  const [posts, totalPosts] = await Promise.all([
     client.fetch(postsQuery, { start, end }),
     client.fetch(countQuery),
-    getMetaDataBySlug("page", "blog"),
   ]);
 
   const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
 
   return (
     <>
-      <JsonLd schema={getPageSchema(data, "https://drshreyankeducare.com/blog/")} />
+      <JsonLd schema={getBlogMainPageSchema()} />
       <GeneralHeroSection
         {...BlogsHeroSectionContent}
         breadcrumb={<Breadcrumbs />}

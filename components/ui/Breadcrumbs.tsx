@@ -12,12 +12,10 @@ interface BreadcrumbsProps {
   items?: BreadcrumbItem[];
 }
 
-const SITE_ORIGIN = "https://drshreyankeducare.com";
+const SITE_ORIGIN = "https://www.drshreyankeducare.com";
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
   const pathname = usePathname();
-  console.log(pathname);
-  
 
   const breadcrumbItems = useMemo(() => {
     if (items && items.length > 0) {
@@ -33,7 +31,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
       {
         "@type": "ListItem",
         position: 1,
-        name: "Home",
+        name: "Dr. Shreyank Educare",
         item: `${SITE_ORIGIN}/`,
       },
       ...breadcrumbItems.map((item, index) => ({

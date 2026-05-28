@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import { JsonLd, getFaqSchema } from "@/components/SchemaMarkup";
 
 interface FAQItem {
     id?: number | string;
@@ -16,6 +17,7 @@ interface FAQAccordionProps {
 
 const FAQAccordion: React.FC<FAQAccordionProps> = ({ items }) => {
     const [openIds, setOpenIds] = useState<(number | string)[]>([]);
+    const faqSchema = getFaqSchema(items);
 
     const toggleExpand = (id: number | string) => {
         setOpenIds((currentOpenIds) =>
@@ -26,7 +28,9 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items }) => {
     };
 
     return (
-        <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
+        <>
+            {faqSchema && <JsonLd schema={faqSchema} />}
+            <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
             <div className="flex flex-col gap-10">
                 {items.map((item, index) => {
                     const itemId = item._key || item.id || index;
@@ -63,6 +67,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ items }) => {
                 })}
             </div>
         </div>
+        </>
     );
 };
 

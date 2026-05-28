@@ -24,5 +24,19 @@ export const programPage = defineType({
       title: "SEO Metadata",
       type: "metaData",
     }),
+    defineField({
+      name: "faqs",
+      title: "FAQs",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "question", type: "string", title: "Question" },
+            { name: "answer", type: "text", title: "Answer" },
+          ],
+        },
+      ],
+    }),
   ],
 });

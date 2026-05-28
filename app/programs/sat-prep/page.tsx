@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 import { getMetaDataBySlug, getMetadata } from "@/utils/seoBuilder";
+import VancouverFAQSection from "@/components/VancouverFAQSection";
 import { JsonLd, getPageSchema } from "@/components/SchemaMarkup";
 
 export async function generateMetadata() {
@@ -199,7 +200,8 @@ export default async function SatPrepProgramPage() {
           </div>
         </div>
       </div>
-    </main>
+            <VancouverFAQSection faqs={data?.faqs} />
+      </main>
     </>
   );
 }

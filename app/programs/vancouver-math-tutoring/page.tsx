@@ -13,6 +13,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { getMetaDataBySlug, getMetadata } from "@/utils/seoBuilder";
+import VancouverFAQSection from "@/components/VancouverFAQSection";
 import { JsonLd, getPageSchema } from "@/components/SchemaMarkup";
 import type { Metadata } from "next";
 
@@ -268,6 +269,7 @@ export default async function VancouverMathTutoringPage() {
             </div>
           </section>
         </div>
+              <VancouverFAQSection faqs={data?.faqs} />
       </main>
     </>
   );
