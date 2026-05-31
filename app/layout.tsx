@@ -42,6 +42,10 @@ export default function RootLayout({
     >
       <head>
         {/* Google Tag Manager */}
+        <meta
+          name="google-site-verification"
+          content="7Mcfim1SrITIu03nheUyOu9k8Ni_PM0oyTyjZF6gOdU"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
