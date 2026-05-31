@@ -25,11 +25,20 @@ export async function generateMetadata({ searchParams }: PageProps) {
   const baseMeta = getMetadata(data, "https://drshreyankeducare.com/blog/");
 
   if (baseMeta && baseMeta.title) {
+    const canonical = pageNum > 1
+      ? `https://www.drshreyankeducare.com/blog?page=${pageNum}`
+      : `https://www.drshreyankeducare.com/blog`;
     return {
       ...baseMeta,
       title: `${baseMeta.title}${suffix}`,
       alternates: {
-        canonical: pageNum > 1 ? `https://drshreyankeducare.com/blog/?page=${pageNum}` : `https://drshreyankeducare.com/blog/`,
+        ...baseMeta.alternates,
+        canonical,
+        languages: {
+          ...baseMeta.alternates?.languages,
+          "en-US": canonical,
+          "en-ca": canonical,
+        },
       },
     };
   }

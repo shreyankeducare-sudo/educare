@@ -57,9 +57,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allRoutes = [...staticRoutes, ...dynamicRoutes];
 
   return allRoutes.map((route) => {
-    const suffix = route.endsWith("/") ? "" : "/";
+    const url = route === "" ? `${baseUrl}/` : `${baseUrl}${route}`;
     return {
-      url: `${baseUrl}${route}${suffix}`,
+      url,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: route === "" ? 1 : 0.8,

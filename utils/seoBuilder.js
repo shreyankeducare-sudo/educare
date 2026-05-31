@@ -102,8 +102,17 @@ export const getMetaDataBySlug = async (type, slug) => {
 
 export function getMetadata(data, currentUrl = "") {
   const seo = data?.metaData;
-  // Use provided URL or default to homepage
-  const canonicalUrl = currentUrl || "https://drshreyankeducare.com/";
+  
+  // Normalize canonical URL to use the www. subdomain and handle trailing slashes
+  let canonicalUrl = currentUrl || "https://www.drshreyankeducare.com/";
+  if (canonicalUrl.startsWith("https://drshreyankeducare.com")) {
+    canonicalUrl = canonicalUrl.replace("https://drshreyankeducare.com", "https://www.drshreyankeducare.com");
+  }
+  
+  // Strip trailing slash from internal page URLs to match Next.js/Vercel routing
+  if (canonicalUrl !== "https://www.drshreyankeducare.com/" && canonicalUrl.endsWith("/")) {
+    canonicalUrl = canonicalUrl.slice(0, -1);
+  }
 
   const metadata = {
     title: "Dr. Shreyank Educare",
@@ -119,8 +128,8 @@ export function getMetadata(data, currentUrl = "") {
     },
     alternates: {
       languages: {
-        "en-US": "https://drshreyankeducare.com/",
-        "en-ca": "https://www.drshreyankeducare.com/",
+        "en-US": canonicalUrl,
+        "en-ca": canonicalUrl,
       },
       canonical: canonicalUrl,
     },
@@ -147,7 +156,16 @@ export function getMetadata(data, currentUrl = "") {
   }
 
   if (seo.canonical) {
-    metadata.alternates.canonical = seo.canonical;
+    let customCanonical = seo.canonical;
+    if (customCanonical.startsWith("https://drshreyankeducare.com")) {
+      customCanonical = customCanonical.replace("https://drshreyankeducare.com", "https://www.drshreyankeducare.com");
+    }
+    if (customCanonical !== "https://www.drshreyankeducare.com/" && customCanonical.endsWith("/")) {
+      customCanonical = customCanonical.slice(0, -1);
+    }
+    metadata.alternates.canonical = customCanonical;
+    metadata.alternates.languages["en-US"] = customCanonical;
+    metadata.alternates.languages["en-ca"] = customCanonical;
   }
 
   metadata.openGraph.title = metadata.title;
