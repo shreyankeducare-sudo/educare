@@ -22,12 +22,13 @@ export async function generateMetadata({ searchParams }: PageProps) {
   const suffix = !isNaN(pageNum) && pageNum > 1 ? ` - Page ${pageNum}` : "";
 
   const data = await getMetaDataBySlug("page", "blog");
-  const baseMeta = getMetadata(data, "https://drshreyankeducare.com/blog/");
+  const baseMeta = getMetadata(data, "https://www.drshreyankeducare.com/blog/");
 
   if (baseMeta && baseMeta.title) {
-    const canonical = pageNum > 1
-      ? `https://www.drshreyankeducare.com/blog?page=${pageNum}`
-      : `https://www.drshreyankeducare.com/blog`;
+    const canonical =
+      pageNum > 1
+        ? `https://www.drshreyankeducare.com/blog?page=${pageNum}`
+        : `https://www.drshreyankeducare.com/blog`;
     return {
       ...baseMeta,
       title: `${baseMeta.title}${suffix}`,
@@ -141,14 +142,15 @@ export default async function BlogListingPage({ searchParams }: PageProps) {
                   } else {
                     plainTextBody = stripHtml(post.body || "");
                   }
-                  const postExcerpt = post.excerpt || (plainTextBody.substring(0, 150) + "...");
+                  const postExcerpt =
+                    post.excerpt || plainTextBody.substring(0, 150) + "...";
                   const readingTime = getReadingTime(plainTextBody);
                   const formattedDate = post.publishedAt
                     ? new Date(post.publishedAt).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })
                     : "Recently published";
 
                   const imageUrl = post.mainImage
@@ -188,9 +190,7 @@ export default async function BlogListingPage({ searchParams }: PageProps) {
 
                         {/* Title */}
                         <h3 className="text-xl font-display font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                          <Link href={`/blog/${post.slug}`}>
-                            {post.title}
-                          </Link>
+                          <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                         </h3>
 
                         {/* Excerpt */}

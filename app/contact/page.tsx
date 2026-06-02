@@ -26,7 +26,7 @@ const fallbackContactCards: ContactCard[] = [
 
 export async function generateMetadata() {
   const data = await getMetaDataBySlug("page", "contact");
-  return getMetadata(data, "https://drshreyankeducare.com/contact");
+  return getMetadata(data, "https://www.drshreyankeducare.com/contact");
 }
 
 const ContactPage = async () => {
@@ -37,7 +37,10 @@ const ContactPage = async () => {
   return (
     <>
       <JsonLd
-        schema={getPageSchema(data, "https://drshreyankeducare.com/contact")}
+        schema={getPageSchema(
+          data,
+          "https://www.drshreyankeducare.com/contact",
+        )}
       />
       <section className="relative overflow-hidden bg-white pt-24 pb-16 sm:pt-28 lg:pt-32 lg:pb-20">
         <div

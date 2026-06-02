@@ -19,7 +19,10 @@ import type { Metadata } from "next";
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const data = await getMetaDataBySlug("programPage", "pre-calculus");
-    return getMetadata(data, "https://drshreyankeducare.com/programs/pre-calculus");
+    return getMetadata(
+      data,
+      "https://www.drshreyankeducare.com/programs/pre-calculus",
+    );
   } catch {
     return {
       title: "Pre-Calculus 11 & 12 Tutoring | Dr. Shreyank Educare",
@@ -68,7 +71,12 @@ export default async function PreCalculusProgramPage() {
 
   return (
     <>
-      <JsonLd schema={getPageSchema(data, "https://drshreyankeducare.com/programs/pre-calculus")} />
+      <JsonLd
+        schema={getPageSchema(
+          data,
+          "https://www.drshreyankeducare.com/programs/pre-calculus",
+        )}
+      />
       <main className="relative min-h-screen bg-bg-grey overflow-hidden">
         <div
           className="absolute h-[1568px] inset-0 z-0 pointer-events-none"
@@ -99,10 +107,9 @@ export default async function PreCalculusProgramPage() {
                 </p>
                 <p>
                   At Dr. Shreyank Educare, our tutors specialize in breaking
-                  down the complex topics of Pre-Calculus into clear,
-                  manageable steps — from quadratics and trigonometry to
-                  rational functions and series — so students can approach
-                  exams with confidence.
+                  down the complex topics of Pre-Calculus into clear, manageable
+                  steps — from quadratics and trigonometry to rational functions
+                  and series — so students can approach exams with confidence.
                 </p>
               </div>
 
@@ -173,7 +180,10 @@ export default async function PreCalculusProgramPage() {
                       desc: "Every student progresses at their own pace. Sessions adapt week to week based on what the student is currently studying in class.",
                     },
                   ].map((item, idx) => (
-                    <div key={idx} className="text-[16px] font-montserrat leading-tight text-slate">
+                    <div
+                      key={idx}
+                      className="text-[16px] font-montserrat leading-tight text-slate"
+                    >
                       <div className="flex items-start gap-2">
                         <span className="shrink-0">·</span>
                         <div>
@@ -233,8 +243,12 @@ export default async function PreCalculusProgramPage() {
                     "Trigonometry",
                     "Sequences & Series",
                   ].map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[16px] font-montserrat text-slate">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />{c}
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-[16px] font-montserrat text-slate"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />
+                      {c}
                     </li>
                   ))}
                 </ul>
@@ -252,8 +266,12 @@ export default async function PreCalculusProgramPage() {
                     "Polynomial Functions",
                     "Permutations, Combinations & Binomial Theorem",
                   ].map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[16px] font-montserrat text-slate">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />{c}
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-[16px] font-montserrat text-slate"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />
+                      {c}
                     </li>
                   ))}
                 </ul>
@@ -261,7 +279,7 @@ export default async function PreCalculusProgramPage() {
             </div>
           </section>
         </div>
-              <VancouverFAQSection faqs={data?.faqs} />
+        <VancouverFAQSection faqs={data?.faqs} />
       </main>
     </>
   );

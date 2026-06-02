@@ -20,7 +20,10 @@ import type { Metadata } from "next";
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const data = await getMetaDataBySlug("programPage", "ib-ap-tutoring");
-    return getMetadata(data, "https://drshreyankeducare.com/programs/ib-ap-tutoring");
+    return getMetadata(
+      data,
+      "https://www.drshreyankeducare.com/programs/ib-ap-tutoring",
+    );
   } catch {
     return {
       title: "IB & AP Tutoring | Dr. Shreyank Educare",
@@ -69,7 +72,12 @@ export default async function IBAPTutoringPage() {
 
   return (
     <>
-      <JsonLd schema={getPageSchema(data, "https://drshreyankeducare.com/programs/ib-ap-tutoring")} />
+      <JsonLd
+        schema={getPageSchema(
+          data,
+          "https://www.drshreyankeducare.com/programs/ib-ap-tutoring",
+        )}
+      />
       <main className="relative min-h-screen bg-bg-grey overflow-hidden">
         <div
           className="absolute h-[1568px] inset-0 z-0 pointer-events-none"
@@ -183,7 +191,10 @@ export default async function IBAPTutoringPage() {
                       desc: "IB and AP reward genuine understanding. We go deep into concepts rather than teaching to the test, ensuring students can handle any question the exam throws at them.",
                     },
                   ].map((item, idx) => (
-                    <div key={idx} className="text-[16px] font-montserrat leading-tight text-slate">
+                    <div
+                      key={idx}
+                      className="text-[16px] font-montserrat leading-tight text-slate"
+                    >
                       <div className="flex items-start gap-2">
                         <span className="shrink-0">·</span>
                         <div>
@@ -243,8 +254,12 @@ export default async function IBAPTutoringPage() {
                     "IB Biology SL & HL",
                     "Internal Assessments (IA)",
                   ].map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[16px] font-montserrat text-slate">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />{c}
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-[16px] font-montserrat text-slate"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />
+                      {c}
                     </li>
                   ))}
                 </ul>
@@ -262,8 +277,12 @@ export default async function IBAPTutoringPage() {
                     "AP Biology",
                     "AP Statistics",
                   ].map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[16px] font-montserrat text-slate">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />{c}
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-[16px] font-montserrat text-slate"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />
+                      {c}
                     </li>
                   ))}
                 </ul>
@@ -271,7 +290,7 @@ export default async function IBAPTutoringPage() {
             </div>
           </section>
         </div>
-              <VancouverFAQSection faqs={data?.faqs} />
+        <VancouverFAQSection faqs={data?.faqs} />
       </main>
     </>
   );

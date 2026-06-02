@@ -1,17 +1,16 @@
-import React from 'react'
+import React from "react";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import GeneralHeroSection from "@/components/GeneralComponents/GereralHeroSection";
-import { ResourcesHeroSectionContent } from '@/components/GeneralComponents/content';
+import { ResourcesHeroSectionContent } from "@/components/GeneralComponents/content";
 import { getMetaDataBySlug, getMetadata } from "@/utils/seoBuilder";
 
 export async function generateMetadata() {
   const data = await getMetaDataBySlug("page", "resources");
-  return getMetadata(data, "https://drshreyankeducare.com/resources");
+  return getMetadata(data, "https://www.drshreyankeducare.com/resources");
 }
-import ResourcesTabsSection from '@/components/ResourcesPageComponents/ResourcesTabsSection';
-import { getResourcePageData } from '@/utils/seoBuilder';
+import ResourcesTabsSection from "@/components/ResourcesPageComponents/ResourcesTabsSection";
+import { getResourcePageData } from "@/utils/seoBuilder";
 import { JsonLd, getPageSchema } from "@/components/SchemaMarkup";
-
 
 const Page = async () => {
   const resourceData = await getResourcePageData();
@@ -19,7 +18,12 @@ const Page = async () => {
 
   return (
     <>
-      <JsonLd schema={getPageSchema(pageData, "https://drshreyankeducare.com/resources")} />
+      <JsonLd
+        schema={getPageSchema(
+          pageData,
+          "https://www.drshreyankeducare.com/resources",
+        )}
+      />
       <GeneralHeroSection
         {...ResourcesHeroSectionContent}
         breadcrumb={<Breadcrumbs />}
@@ -30,9 +34,9 @@ const Page = async () => {
         </div>
       </main>
     </>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
 
 export const revalidate = 3600;

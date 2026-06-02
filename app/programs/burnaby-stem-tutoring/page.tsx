@@ -19,8 +19,14 @@ import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
-    const data = await getMetaDataBySlug("programPage", "burnaby-stem-tutoring");
-    return getMetadata(data, "https://drshreyankeducare.com/programs/burnaby-stem-tutoring");
+    const data = await getMetaDataBySlug(
+      "programPage",
+      "burnaby-stem-tutoring",
+    );
+    return getMetadata(
+      data,
+      "https://www.drshreyankeducare.com/programs/burnaby-stem-tutoring",
+    );
   } catch {
     return {
       title: "Burnaby STEM Tutoring | Dr. Shreyank Educare",
@@ -69,7 +75,12 @@ export default async function BurnabySTEMTutoringPage() {
 
   return (
     <>
-      <JsonLd schema={getPageSchema(data, "https://drshreyankeducare.com/programs/burnaby-stem-tutoring")} />
+      <JsonLd
+        schema={getPageSchema(
+          data,
+          "https://www.drshreyankeducare.com/programs/burnaby-stem-tutoring",
+        )}
+      />
       <main className="relative min-h-screen bg-bg-grey overflow-hidden">
         <div
           className="absolute h-[1568px] inset-0 z-0 pointer-events-none"
@@ -102,12 +113,13 @@ export default async function BurnabySTEMTutoringPage() {
                   Dr. Shreyank Educare offers comprehensive STEM tutoring for
                   Burnaby students. From Mathematics and Physics to Chemistry,
                   Biology, and Computer Science, our expert tutors provide
-                  structured, personalized support aligned with the BC curriculum.
+                  structured, personalized support aligned with the BC
+                  curriculum.
                 </p>
                 <p>
-                  Whether your child is at Simon Fraser University, a Burnaby high
-                  school, or preparing for university entrance, we deliver the
-                  focused academic support they need to succeed in STEM.
+                  Whether your child is at Simon Fraser University, a Burnaby
+                  high school, or preparing for university entrance, we deliver
+                  the focused academic support they need to succeed in STEM.
                 </p>
               </div>
 
@@ -176,7 +188,10 @@ export default async function BurnabySTEMTutoringPage() {
                       desc: "Practical, outcome-focused sessions ensure students are prepared not just to understand material, but to perform well in assessments.",
                     },
                   ].map((item, idx) => (
-                    <div key={idx} className="text-[16px] font-montserrat leading-tight text-slate">
+                    <div
+                      key={idx}
+                      className="text-[16px] font-montserrat leading-tight text-slate"
+                    >
                       <div className="flex items-start gap-2">
                         <span className="shrink-0">·</span>
                         <div>
@@ -229,9 +244,18 @@ export default async function BurnabySTEMTutoringPage() {
                   Math & Physics
                 </h3>
                 <ul className="space-y-2">
-                  {["Pre-Calculus 11 & 12", "Calculus 12", "Physics 11 & 12", "University Physics"].map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[16px] font-montserrat text-slate">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />{c}
+                  {[
+                    "Pre-Calculus 11 & 12",
+                    "Calculus 12",
+                    "Physics 11 & 12",
+                    "University Physics",
+                  ].map((c) => (
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-[16px] font-montserrat text-slate"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />
+                      {c}
                     </li>
                   ))}
                 </ul>
@@ -242,9 +266,18 @@ export default async function BurnabySTEMTutoringPage() {
                   Chemistry & Biology
                 </h3>
                 <ul className="space-y-2">
-                  {["Chemistry 11 & 12", "University Chemistry", "Biology 11 & 12", "University Biology"].map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[16px] font-montserrat text-slate">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />{c}
+                  {[
+                    "Chemistry 11 & 12",
+                    "University Chemistry",
+                    "Biology 11 & 12",
+                    "University Biology",
+                  ].map((c) => (
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-[16px] font-montserrat text-slate"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />
+                      {c}
                     </li>
                   ))}
                 </ul>
@@ -255,9 +288,18 @@ export default async function BurnabySTEMTutoringPage() {
                   Computer Science
                 </h3>
                 <ul className="space-y-2">
-                  {["Python", "JavaScript", "Data Structures", "SFU CMPT Courses"].map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[16px] font-montserrat text-slate">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />{c}
+                  {[
+                    "Python",
+                    "JavaScript",
+                    "Data Structures",
+                    "SFU CMPT Courses",
+                  ].map((c) => (
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-[16px] font-montserrat text-slate"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />
+                      {c}
                     </li>
                   ))}
                 </ul>
@@ -265,7 +307,7 @@ export default async function BurnabySTEMTutoringPage() {
             </div>
           </section>
         </div>
-              <VancouverFAQSection faqs={data?.faqs} />
+        <VancouverFAQSection faqs={data?.faqs} />
       </main>
     </>
   );

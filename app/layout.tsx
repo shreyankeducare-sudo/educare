@@ -46,6 +46,7 @@ export default function RootLayout({
           name="google-site-verification"
           content="7Mcfim1SrITIu03nheUyOu9k8Ni_PM0oyTyjZF6gOdU"
         />
+        <meta name="robots" content="index, follow"></meta>
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

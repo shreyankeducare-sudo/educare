@@ -19,7 +19,10 @@ import type { Metadata } from "next";
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const data = await getMetaDataBySlug("programPage", "physics-tutoring");
-    return getMetadata(data, "https://drshreyankeducare.com/programs/physics-tutoring");
+    return getMetadata(
+      data,
+      "https://www.drshreyankeducare.com/programs/physics-tutoring",
+    );
   } catch {
     return {
       title: "Physics Tutoring | Dr. Shreyank Educare",
@@ -68,7 +71,12 @@ export default async function PhysicsTutoringPage() {
 
   return (
     <>
-      <JsonLd schema={getPageSchema(data, "https://drshreyankeducare.com/programs/physics-tutoring")} />
+      <JsonLd
+        schema={getPageSchema(
+          data,
+          "https://www.drshreyankeducare.com/programs/physics-tutoring",
+        )}
+      />
       <main className="relative min-h-screen bg-bg-grey overflow-hidden">
         <div
           className="absolute h-[1568px] inset-0 z-0 pointer-events-none"
@@ -172,7 +180,10 @@ export default async function PhysicsTutoringPage() {
                       desc: "We walk students through past provincial exam questions, teaching them how to allocate time, recognize question types, and avoid common pitfalls.",
                     },
                   ].map((item, idx) => (
-                    <div key={idx} className="text-[16px] font-montserrat leading-tight text-slate">
+                    <div
+                      key={idx}
+                      className="text-[16px] font-montserrat leading-tight text-slate"
+                    >
                       <div className="flex items-start gap-2">
                         <span className="shrink-0">·</span>
                         <div>
@@ -231,8 +242,12 @@ export default async function PhysicsTutoringPage() {
                     "BC Provincial Exam Prep",
                     "IB Physics SL/HL",
                   ].map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[16px] font-montserrat text-slate">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />{c}
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-[16px] font-montserrat text-slate"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />
+                      {c}
                     </li>
                   ))}
                 </ul>
@@ -249,8 +264,12 @@ export default async function PhysicsTutoringPage() {
                     "Waves & Modern Physics",
                     "Engineering Physics Courses",
                   ].map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[16px] font-montserrat text-slate">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />{c}
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-[16px] font-montserrat text-slate"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />
+                      {c}
                     </li>
                   ))}
                 </ul>
@@ -258,7 +277,7 @@ export default async function PhysicsTutoringPage() {
             </div>
           </section>
         </div>
-              <VancouverFAQSection faqs={data?.faqs} />
+        <VancouverFAQSection faqs={data?.faqs} />
       </main>
     </>
   );

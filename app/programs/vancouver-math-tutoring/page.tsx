@@ -19,8 +19,14 @@ import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
-    const data = await getMetaDataBySlug("programPage", "vancouver-math-tutoring");
-    return getMetadata(data, "https://drshreyankeducare.com/programs/vancouver-math-tutoring");
+    const data = await getMetaDataBySlug(
+      "programPage",
+      "vancouver-math-tutoring",
+    );
+    return getMetadata(
+      data,
+      "https://www.drshreyankeducare.com/programs/vancouver-math-tutoring",
+    );
   } catch {
     return {
       title: "Vancouver Math Tutoring | Dr. Shreyank Educare",
@@ -69,7 +75,12 @@ export default async function VancouverMathTutoringPage() {
 
   return (
     <>
-      <JsonLd schema={getPageSchema(data, "https://drshreyankeducare.com/programs/vancouver-math-tutoring")} />
+      <JsonLd
+        schema={getPageSchema(
+          data,
+          "https://www.drshreyankeducare.com/programs/vancouver-math-tutoring",
+        )}
+      />
       <main className="relative min-h-screen bg-bg-grey overflow-hidden">
         <div
           className="absolute h-[1568px] inset-0 z-0 pointer-events-none"
@@ -100,15 +111,15 @@ export default async function VancouverMathTutoringPage() {
               <div className="space-y-4 text-[16px] leading-[22px] font-montserrat text-slate mb-6">
                 <p>
                   Looking for reliable math tutoring in Vancouver? Dr. Shreyank
-                  Educare provides expert, personalized math support for students
-                  from Grade 8 through university. Whether your child is
-                  struggling with foundational concepts or preparing for final
-                  exams, our experienced tutors are here to help.
+                  Educare provides expert, personalized math support for
+                  students from Grade 8 through university. Whether your child
+                  is struggling with foundational concepts or preparing for
+                  final exams, our experienced tutors are here to help.
                 </p>
                 <p>
                   We focus on concept clarity, structured practice, and
-                  confidence-building — helping Vancouver students not just pass,
-                  but truly understand mathematics.
+                  confidence-building — helping Vancouver students not just
+                  pass, but truly understand mathematics.
                 </p>
               </div>
 
@@ -234,8 +245,12 @@ export default async function VancouverMathTutoringPage() {
                 </h3>
                 <ul className="space-y-2">
                   {["Math 8", "Math 9", "Foundations of Math 10"].map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[16px] font-montserrat text-slate">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />{c}
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-[16px] font-montserrat text-slate"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />
+                      {c}
                     </li>
                   ))}
                 </ul>
@@ -246,9 +261,17 @@ export default async function VancouverMathTutoringPage() {
                   High School (Grades 10–12)
                 </h3>
                 <ul className="space-y-2">
-                  {["Pre-Calculus 11 & 12", "Foundations of Math 11 & 12", "Calculus 12"].map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[16px] font-montserrat text-slate">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />{c}
+                  {[
+                    "Pre-Calculus 11 & 12",
+                    "Foundations of Math 11 & 12",
+                    "Calculus 12",
+                  ].map((c) => (
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-[16px] font-montserrat text-slate"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />
+                      {c}
                     </li>
                   ))}
                 </ul>
@@ -259,9 +282,18 @@ export default async function VancouverMathTutoringPage() {
                   University Level
                 </h3>
                 <ul className="space-y-2">
-                  {["Calculus I & II", "Linear Algebra", "Statistics", "Differential Equations"].map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[16px] font-montserrat text-slate">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />{c}
+                  {[
+                    "Calculus I & II",
+                    "Linear Algebra",
+                    "Statistics",
+                    "Differential Equations",
+                  ].map((c) => (
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-[16px] font-montserrat text-slate"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate/20" />
+                      {c}
                     </li>
                   ))}
                 </ul>
@@ -269,7 +301,7 @@ export default async function VancouverMathTutoringPage() {
             </div>
           </section>
         </div>
-              <VancouverFAQSection faqs={data?.faqs} />
+        <VancouverFAQSection faqs={data?.faqs} />
       </main>
     </>
   );

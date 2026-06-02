@@ -16,7 +16,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const data = await getMetaDataBySlug("post", slug);
-  return getMetadata(data, `https://drshreyankeducare.com/blog/${slug}/`);
+  return getMetadata(data, `https://www.drshreyankeducare.com/blog/${slug}/`);
 }
 
 // Helper to extract plain text from Portable Text blocks
@@ -121,7 +121,9 @@ const portableTextComponents = {
     link: ({ children, value }: any) => {
       const href = value?.href;
       const target =
-        href && !href.startsWith("/") && !href.startsWith("https://drshreyankeducare.com")
+        href &&
+        !href.startsWith("/") &&
+        !href.startsWith("https://drshreyankeducare.com")
           ? "_blank"
           : undefined;
       return (
@@ -194,7 +196,12 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <>
-      <JsonLd schema={getBlogPostSchema(post, `https://drshreyankeducare.com/blog/${slug}/`)} />
+      <JsonLd
+        schema={getBlogPostSchema(
+          post,
+          `https://www.drshreyankeducare.com/blog/${slug}/`,
+        )}
+      />
       {/* Blog Detail Main Wrapper */}
       <main className="min-h-screen bg-slate-50 relative pb-24 font-sans">
         {/* Background Decorative Accents */}
@@ -260,7 +267,10 @@ export default async function BlogPostPage({ params }: PageProps) {
               {/* Rich Blog Body Content */}
               <div className="blog-rich-content text-slate-800 text-[16px] sm:text-[18px] leading-relaxed space-y-6">
                 {Array.isArray(post.body) ? (
-                  <PortableText value={post.body} components={portableTextComponents} />
+                  <PortableText
+                    value={post.body}
+                    components={portableTextComponents}
+                  />
                 ) : (
                   <div dangerouslySetInnerHTML={{ __html: post.body || "" }} />
                 )}
@@ -330,7 +340,9 @@ export default async function BlogPostPage({ params }: PageProps) {
         )}
 
         {/* Inject Styles specifically for rich HTML styling */}
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
           .blog-rich-content h2 {
             font-size: 1.5rem;
             font-weight: 700;
@@ -402,7 +414,9 @@ export default async function BlogPostPage({ params }: PageProps) {
           .blog-rich-content a:hover {
             color: #d97706;
           }
-        `}} />
+        `,
+          }}
+        />
       </main>
     </>
   );

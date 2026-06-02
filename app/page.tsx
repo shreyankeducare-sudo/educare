@@ -18,7 +18,7 @@ import { JsonLd, getLocalBusinessSchema } from "@/components/SchemaMarkup";
 
 export async function generateMetadata() {
   const data = await getPageData("vancouverPage");
-  return getMetadata(data, "https://drshreyankeducare.com/");
+  return getMetadata(data, "https://www.drshreyankeducare.com/");
 }
 
 const metrics = [

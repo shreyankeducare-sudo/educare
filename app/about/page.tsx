@@ -10,7 +10,7 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 export async function generateMetadata() {
   const data = await getMetaDataBySlug("page", "about");
-  return getMetadata(data, "https://drshreyankeducare.com/about");
+  return getMetadata(data, "https://www.drshreyankeducare.com/about");
 }
 import TrustedBrands from "@/components/TrustedBrands";
 import Reviews from "@/components/Reviews";
@@ -19,7 +19,9 @@ const AboutUs = async () => {
   const data = await getMetaDataBySlug("page", "about");
   return (
     <>
-      <JsonLd schema={getPageSchema(data, "https://drshreyankeducare.com/about")} />
+      <JsonLd
+        schema={getPageSchema(data, "https://www.drshreyankeducare.com/about")}
+      />
       <GeneralHeroSection
         {...AboutHeroSectionContent}
         breadcrumb={<Breadcrumbs />}
@@ -35,9 +37,8 @@ const AboutUs = async () => {
         </div>
       </main>
     </>
-
   );
-}
+};
 
 export default AboutUs;
 export const revalidate = 3600;
