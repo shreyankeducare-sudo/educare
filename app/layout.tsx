@@ -21,7 +21,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Dr. Shreyank Educare",
   description: "Personalized Learning, That Works At Every Level!",
-  metadataBase: new URL("https://www.drshreyankeducare.com"),
+  metadataBase: new URL("https://www.drshreyankeducare.com/"),
   alternates: {
     canonical: "https://www.drshreyankeducare.com/",
     languages: {

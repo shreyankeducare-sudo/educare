@@ -207,6 +207,7 @@ const redirectPairs: [string, string][] = [
 ];
 
 const nextConfig: NextConfig = {
+  trailingSlash: false, // Ensures 308 permanent redirects from /page/ → /page (fixes Google duplicate canonical issue)
   images: {
     minimumCacheTTL: 31536000, // 1 year cache policy for optimized images
     remotePatterns: [

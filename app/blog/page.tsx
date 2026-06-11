@@ -22,7 +22,7 @@ export async function generateMetadata({ searchParams }: PageProps) {
   const suffix = !isNaN(pageNum) && pageNum > 1 ? ` - Page ${pageNum}` : "";
 
   const data = await getMetaDataBySlug("page", "blog");
-  const baseMeta = getMetadata(data, "https://www.drshreyankeducare.com/blog/");
+  const baseMeta = getMetadata(data, "https://www.drshreyankeducare.com/blog");
 
   if (baseMeta && baseMeta.title) {
     const canonical =

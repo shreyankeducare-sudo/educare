@@ -143,6 +143,10 @@ export function getPageSchema(data: any, currentUrl: string) {
   if (normalizedUrl.startsWith("https://drshreyankeducare.com")) {
     normalizedUrl = normalizedUrl.replace("https://drshreyankeducare.com", "https://www.drshreyankeducare.com");
   }
+  // Strip trailing slash except for the homepage
+  if (normalizedUrl !== "https://www.drshreyankeducare.com/" && normalizedUrl.endsWith("/")) {
+    normalizedUrl = normalizedUrl.slice(0, -1);
+  }
 
   const schema: any = {
     "@context": "https://schema.org",
@@ -190,6 +194,10 @@ export function getBlogPostSchema(post: any, currentUrl: string): Record<string,
   let normalizedUrl = currentUrl;
   if (normalizedUrl.startsWith("https://drshreyankeducare.com")) {
     normalizedUrl = normalizedUrl.replace("https://drshreyankeducare.com", "https://www.drshreyankeducare.com");
+  }
+  // Strip trailing slash except for the homepage
+  if (normalizedUrl !== "https://www.drshreyankeducare.com/" && normalizedUrl.endsWith("/")) {
+    normalizedUrl = normalizedUrl.slice(0, -1);
   }
 
   return {
