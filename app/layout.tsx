@@ -46,6 +46,7 @@ export default function RootLayout({
           name="google-site-verification"
           content="7Mcfim1SrITIu03nheUyOu9k8Ni_PM0oyTyjZF6gOdU"
         />
+        <meta name="msvalidate.01" content="54E28FB1CC71BE73D45D32FE32B244B3" />
         <meta name="robots" content="index, follow"></meta>
         <script
           dangerouslySetInnerHTML={{

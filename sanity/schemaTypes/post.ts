@@ -112,5 +112,12 @@ export const post = defineType({
       title: "SEO Metadata",
       type: "metaData",
     }),
+    defineField({
+      name: "author",
+      title: "Author",
+      type: "reference",
+      to: [{ type: "author" }],
+      description: "Select the author for this blog post. If left blank, Dr. Shreyank will be shown as the default author.",
+    }),
   ],
 });

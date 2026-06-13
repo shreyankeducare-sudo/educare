@@ -200,6 +200,11 @@ export function getBlogPostSchema(post: any, currentUrl: string): Record<string,
     normalizedUrl = normalizedUrl.slice(0, -1);
   }
 
+  // Author details with fallback for EEAT validation
+  const authorName = post?.author?.name || "Dr. Shreyank Gupta";
+  const authorImage = post?.author?.image || "https://www.drshreyankeducare.com/assets/drShreyank.webp";
+  const authorJobTitle = post?.author?.credentials || "Founder & Lead Instructor | Ph.D. in Ultrasound Signal & Image Processing";
+
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -211,9 +216,11 @@ export function getBlogPostSchema(post: any, currentUrl: string): Record<string,
     "description": description,
     "image": imageUrl,
     "author": {
-      "@type": "Organization",
-      "name": "Dr. Shreyank Educare",
-      "url": "https://www.drshreyankeducare.com",
+      "@type": "Person",
+      "name": authorName,
+      "image": authorImage,
+      "jobTitle": authorJobTitle,
+      "url": "https://www.drshreyankeducare.com/about",
     },
     "publisher": {
       "@type": "EducationalOrganization",
@@ -225,5 +232,75 @@ export function getBlogPostSchema(post: any, currentUrl: string): Record<string,
     },
     "datePublished": post.publishedAt || new Date().toISOString(),
     "dateModified": post._updatedAt || post.publishedAt || new Date().toISOString(),
+  };
+}
+
+export function getHowToSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Get Started with Tutoring at Dr. Shreyank Educare",
+    "description": "Learn how students can enroll in personalized Math, Physics, Chemistry, Biology, Finance, and Coding tutoring programs at Dr. Shreyank Educare.",
+    "image": "https://www.drshreyankeducare.com/_next/image?url=%2Fassets%2Flogo.png&w=384&q=75",
+    "totalTime": "PT30M",
+    "supply": [
+      {
+        "@type": "HowToSupply",
+        "name": "Student Academic Information"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Learning Goals and Subject Requirements"
+      }
+    ],
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "Free Consultation Session"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Book a Free Consultation",
+        "text": "Fill out the consultation form or contact Dr. Shreyank Educare via phone or WhatsApp to schedule a free consultation."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Discuss Academic Goals",
+        "text": "Share your grade level, subject requirements, academic challenges, and learning objectives with the tutor."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Identify Learning Gaps",
+        "text": "The tutor evaluates weak areas, conceptual gaps, and learning needs to create a customized study plan."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Choose a Tutoring Program",
+        "text": "Select the most suitable tutoring option, including one-on-one tutoring, small group classes, online tutoring, or exam preparation programs."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Begin Structured Learning",
+        "text": "Attend personalized tutoring sessions focused on concept clarity, problem-solving techniques, and academic improvement."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 6,
+        "name": "Track Progress and Improve",
+        "text": "Receive continuous guidance, targeted practice, and performance tracking to strengthen understanding and improve grades."
+      }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Dr. Shreyank Educare",
+      "url": "https://www.drshreyankeducare.com"
+    }
   };
 }

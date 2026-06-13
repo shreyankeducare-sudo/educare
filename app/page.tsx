@@ -14,7 +14,7 @@ import VancouverCTABanner from "@/components/VancouverCTABanner";
 import TrustedBrands from "@/components/TrustedBrands";
 import Reviews from "@/components/Reviews";
 import { getPageData, getMetadata } from "@/utils/seoBuilder";
-import { JsonLd, getLocalBusinessSchema } from "@/components/SchemaMarkup";
+import { JsonLd, getLocalBusinessSchema, getHowToSchema } from "@/components/SchemaMarkup";
 
 export async function generateMetadata() {
   const data = await getPageData("vancouverPage");
@@ -33,6 +33,7 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-white font-montserrat relative overflow-hidden">
       <JsonLd schema={getLocalBusinessSchema()} />
+      <JsonLd schema={getHowToSchema()} />
       {/* Yellow Grid Background */}
       <div
         className="absolute inset-0 z-0 pointer-events-none opacity-40"

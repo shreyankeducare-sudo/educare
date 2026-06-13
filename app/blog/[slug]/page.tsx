@@ -152,7 +152,13 @@ export default async function BlogPostPage({ params }: PageProps) {
     excerpt,
     body,
     mainImage,
-    metaData
+    metaData,
+    author->{
+      name,
+      "image": image.asset->url,
+      bio,
+      credentials
+    }
   }`;
 
   const post = await client.fetch(query, { slug });
@@ -172,6 +178,14 @@ export default async function BlogPostPage({ params }: PageProps) {
   }`;
 
   const relatedPosts = await client.fetch(relatedQuery, { slug });
+
+  // Author details for UI (fallback to founder Dr. Shreyank Gupta if empty)
+  const author = post.author || {
+    name: "Dr. Shreyank Gupta",
+    image: "/assets/drShreyank.webp",
+    bio: "Dr. Shreyank is the founder and director of Dr. Shreyank Educare. He holds a PhD in Ultrasound Signal & Image Processing and brings over 10 years of professional teaching experience. He has successfully mentored students from top Canadian universities, including McGill, York, Carleton, and the University of Ottawa, helping them master subjects like mathematics, physics, chemistry, biology, and computer science.",
+    credentials: "Founder & Lead Instructor | Ph.D. in Ultrasound Signal & Image Processing"
+  };
 
   const plainTextBody = Array.isArray(post.body)
     ? toPlainText(post.body)
@@ -274,6 +288,36 @@ export default async function BlogPostPage({ params }: PageProps) {
                 ) : (
                   <div dangerouslySetInnerHTML={{ __html: post.body || "" }} />
                 )}
+              </div>
+
+              {/* Author Bio Section (EEAT Compliant) */}
+              <div className="mt-12 pt-10 border-t border-slate-100">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 bg-slate-50/50 rounded-2xl p-6 sm:p-8 border border-slate-100">
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 shrink-0 rounded-2xl overflow-hidden shadow-sm border border-white">
+                    <Image
+                      src={author.image}
+                      alt={author.name}
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <div className="flex-1 text-center sm:text-left">
+                    <span className="inline-block text-[11px] font-semibold font-montserrat uppercase tracking-wider text-amber-500 bg-amber-50 px-2.5 py-1 rounded-full mb-2 border border-amber-100">
+                      About The Author
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-display font-bold text-slate-900 mb-1">
+                      {author.name}
+                    </h3>
+                    {author.credentials && (
+                      <p className="text-sm font-medium text-[#44619B] mb-3 font-sans">
+                        {author.credentials}
+                      </p>
+                    )}
+                    <p className="text-slate-600 font-sans text-sm sm:text-[15px] leading-relaxed">
+                      {author.bio}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
