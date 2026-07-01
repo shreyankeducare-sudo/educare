@@ -175,6 +175,60 @@ export const tutors = [
     ],
   },
 
+  {
+    id: 7,
+    name: "Dr. Sabiha Arshed",
+    role: "Health Sciences & Medical Tutor",
+    image: "/assets/tutors/sabiha.jpg",
+    belowshortDescription:
+      "Sabiha creates a calm, encouraging and culturally responsive learning environment for students from diverse backgrounds.",
+    fullDescription:
+      "Dr. Sabiha Arshed is a medical graduate and MSc-trained health sciences professional with extensive experience in teaching, mentoring, clinical education and public health. She specializes in breaking down complex medical and science concepts into clear, structured and easy-to-understand lessons tailored to each student's needs and learning style.\n\nShe supports students across a wide range of subjects including medical terminology, anatomy, physiology, health sciences, biology and general science as well as English writing, study skills and exam preparation.",
+    education: ["MD", "MSc in Health Sciences"],
+    expertise: "Expert Health Sciences & Medical Tutor",
+    strengths: [
+      "MD and MSc-qualified tutor with expertise in health sciences and clinical education",
+      "Covers medical terminology, anatomy, physiology, biology, and general science",
+      "Support for English writing, study skills, and exam preparation",
+      "Multilingual instruction in English, Urdu, Hindi, and Punjabi",
+    ],
+  },
+  {
+    id: 8,
+    name: "Aanchal Kanotra",
+    role: "Actuarial, Economics & School Subjects Tutor",
+    image: "/assets/tutors/aanchal.png",
+    belowshortDescription:
+      "Aanchal’s sessions are fully personalized to match each student's pace and individual learning needs.",
+    fullDescription:
+      "Aanchal Kanotra is an experienced and versatile tutor who supports students across multiple academic levels and disciplines. She works with students up to Class 10 across all core subjects, with a strong emphasis on building fundamentals, developing concept clarity and preparing effectively for exams.\n\nAanchal also brings specialized expertise in Actuarial exam coaching, guiding students through CM1, CB1, CB2, CB3, CS1, CS2, CP2 and CP3 with targeted support in concepts, problem-solving techniques and exam strategy. In addition, she tutors graduate-level Economics students, helping them with conceptual understanding, assignments and exam preparation.",
+    education: ["Actuarial Exam Coach", "Economics Tutor"],
+    expertise: "Expert Actuarial, Economics & School Subjects Tutor",
+    strengths: [
+      "All-subject tutoring for students up to Class 10 with a focus on strong fundamentals",
+      "Specialized Actuarial exam coaching across CM1, CB1, CB2, CB3, CS1, CS2, CP2 and CP3",
+      "Graduate-level Economics tutoring including assignments and exam preparation",
+      "Integrated focus on concept clarity, problem-solving, and exam strategy",
+    ],
+  },
+  {
+    id: 9,
+    name: "Dr. Vishal Sehgal",
+    role: "Physician & Healthcare Education Tutor",
+    image: "/assets/tutors/vishal.png",
+    belowshortDescription:
+      "Dr. Sehgal is deeply committed to fostering professional growth, academic excellence and a lifelong love of learning.",
+    fullDescription:
+      "Dr. Vishal Sehgal is a practicing physician and experienced healthcare educator who brings a rare combination of clinical expertise and academic excellence to every teaching session. His approach is rooted in creating an engaging, supportive learning environment that promotes critical thinking and the practical application of medical knowledge.\n\nA hallmark of Dr. Sehgal's teaching style is his ability to bridge the gap between theory and real-world clinical practice, drawing on his hands-on healthcare experience to bring concepts to life for students.",
+    education: ["Physician & Healthcare Educator", "Clinical & Academic Instruction"],
+    expertise: "Expert Physician & Healthcare Education Tutor",
+    strengths: [
+      "Qualified physician with extensive clinical and academic teaching experience",
+      "Integrates real-world healthcare scenarios to connect theory with practice",
+      "Skilled at adapting instruction for diverse and international student populations",
+      "Promotes critical thinking, professional growth, and lifelong learning",
+    ],
+  },
   // {
   //   id: 6,
   //   name: "Dr. Devinder Kaur",

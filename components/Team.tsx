@@ -48,6 +48,27 @@ const teamMembers = [
     credentials: "Ph.D. in Applied Mathematics",
     image: "/assets/team-5.png",
   },
+  {
+    id: 7,
+    name: "Dr. Sabiha Arshed",
+    role: "Health Sciences & Medical Tutor",
+    credentials: "MD, MSc in Health Sciences",
+    image: "/assets/tutors/sabiha.jpg",
+  },
+  {
+    id: 8,
+    name: "Aanchal Kanotra",
+    role: "Actuarial, Economics & School Subjects Tutor",
+    credentials: "CM1, CB1, CB2, CS1, CS2 Coach",
+    image: "/assets/tutors/aanchal.png",
+  },
+  {
+    id: 9,
+    name: "Dr. Vishal Sehgal",
+    role: "Physician & Healthcare Education Tutor",
+    credentials: "Physician & Healthcare Educator",
+    image: "/assets/tutors/vishal.png",
+  },
   // {
   //   id: 6,
   //   name: "Dr. Devinder Kaur",
@@ -73,7 +94,7 @@ export default function Team() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-[1000px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-[1200px] mx-auto">
           {teamMembers.map((member) => (
             <div
               key={member.id}
