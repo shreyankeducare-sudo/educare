@@ -41,6 +41,7 @@ export default function RootLayout({
       className={`${bricolageGrotesque.variable} ${montserrat.variable} h-full antialiased`}
     >
       <head>
+        <JsonLd schema={getOrganizationSchema()} />
         {/* Google Tag Manager */}
         <meta
           name="google-site-verification"
@@ -71,7 +72,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {/* End Google Tag Manager (noscript) */}
 
-        <JsonLd schema={getOrganizationSchema()} />
         <Header />
         {children}
         <Footer />

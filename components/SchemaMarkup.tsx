@@ -119,6 +119,19 @@ export function getBlogMainPageSchema() {
 
 export function getFaqSchema(faqs: any[]) {
   if (!faqs || faqs.length === 0) return null;
+
+  // Extract plain text from a portable text block array
+  const extractPlainText = (answer: any): string => {
+    if (typeof answer === "string") return answer;
+    if (!Array.isArray(answer)) return "";
+    return answer
+      .map((block: any) => {
+        if (block._type !== "block" || !Array.isArray(block.children)) return "";
+        return block.children.map((span: any) => span.text || "").join("");
+      })
+      .join(" ");
+  };
+
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -127,7 +140,7 @@ export function getFaqSchema(faqs: any[]) {
       name: faq.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: faq.answer,
+        text: extractPlainText(faq.answer),
       },
     })),
   };

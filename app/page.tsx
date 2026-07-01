@@ -14,10 +14,14 @@ import VancouverCTABanner from "@/components/VancouverCTABanner";
 import TrustedBrands from "@/components/TrustedBrands";
 import Reviews from "@/components/Reviews";
 import { getPageData, getMetadata } from "@/utils/seoBuilder";
-import { JsonLd, getLocalBusinessSchema, getHowToSchema } from "@/components/SchemaMarkup";
+import {
+  JsonLd,
+  getLocalBusinessSchema,
+  getHowToSchema,
+} from "@/components/SchemaMarkup";
 
 export async function generateMetadata() {
-  const data = await getPageData("vancouverPage");
+  const data = await getPageData("home");
   return getMetadata(data, "https://www.drshreyankeducare.com/");
 }
 
@@ -28,7 +32,7 @@ const metrics = [
 ];
 
 export default async function Home() {
-  const data = await getPageData("vancouverPage");
+  const data = await getPageData("home");
 
   return (
     <div className="min-h-screen bg-white font-montserrat relative overflow-hidden">
